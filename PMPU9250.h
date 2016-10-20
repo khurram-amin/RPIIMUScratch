@@ -226,7 +226,7 @@ public:
 		std::cout << "Here1" << std::endl;
 		if (readByte(AK8963_ADDRESS, AK8963_ST1) & 0x01) { // wait for magnetometer data ready bit to be set
 			std::cout << "Here2" << std::endl;
-			delay(5);
+			delay(1);
 			readBytes(AK8963_ADDRESS, AK8963_XOUT_L, 7, &rawData[0]);  // Read the six raw data and ST2 registers sequentially into data array
 			uint8_t c = rawData[6]; // End data read by reading ST2 register
 
@@ -262,20 +262,20 @@ public:
 		// First extract the factory calibration for each magnetometer axis
 		uint8_t rawData[3];  // x/y/z gyro calibration data stored here
 		writeByte(AK8963_ADDRESS, AK8963_CNTL, 0x00); // Power down magnetometer  
-		delay(10);
+		delay(1);
 		writeByte(AK8963_ADDRESS, AK8963_CNTL, 0x0F); // Enter Fuse ROM access mode
-		delay(10);
+		delay(1);
 		readBytes(AK8963_ADDRESS, AK8963_ASAX, 3, &rawData[0]);  // Read the x-, y-, and z-axis calibration values
 		destination[0] = (float)(rawData[0] - 128) / 256.0f + 1.0f;   // Return x-axis sensitivity adjustment values, etc.
 		destination[1] = (float)(rawData[1] - 128) / 256.0f + 1.0f;
 		destination[2] = (float)(rawData[2] - 128) / 256.0f + 1.0f;
 		writeByte(AK8963_ADDRESS, AK8963_CNTL, 0x00); // Power down magnetometer  
-		delay(10);
+		delay(1);
 		// Configure the magnetometer for continuous read and highest resolution
 		// set Mscale bit 4 to 1 (0) to enable 16 (14) bit resolution in CNTL register,
 		// and enable continuous mode data acquisition Mmode (bits [3:0]), 0010 for 8 Hz and 0110 for 100 Hz sample rates
 		writeByte(AK8963_ADDRESS, AK8963_CNTL, Mscale << 4 | Mmode); // Set magnetometer data resolution and sample ODR
-		delay(10);
+		delay(1);
 	}
 
 
