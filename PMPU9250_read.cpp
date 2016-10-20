@@ -10,7 +10,10 @@ int main()
 	MPU9250 mpu9250;
 	
 	mpu9250.initMPU9250();
+	delay(10);
 	mpu9250.initAK8963(data2);
+	delay(10);
+
 	while(1)
 	{
 //		cout<<"reading data ..."<<endl;
