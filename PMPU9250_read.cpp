@@ -6,11 +6,11 @@ using namespace std;
 int main()
 {
 	short *data = new short[3];
-	
+	float *data2 = new float[3];
 	MPU9250 mpu9250;
 	
 	mpu9250.initMPU9250();
-	mpu9250.initAK8963(data);
+	mpu9250.initAK8963(data2);
 	while(1)
 	{
 //		cout<<"reading data ..."<<endl;
