@@ -27,6 +27,10 @@ int main()
 		// 	cout<<i<<": "<<1.0f*data[i]*mpu9250.getGres()<<endl;
 		// }
 		// cout<<endl;
+		for (int i=0; i<3; i++)
+		{
+			data[i] = 0;
+		}
 		mpu9250.readMagData(data);
 		for(int i=0; i<3; i++)
 		{
