@@ -43,7 +43,7 @@ int main()
 		// {
 		// 	data[i] = 0;
 		// }
-		cout << "WHO AM I?: " << std::hex << mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
+		cout << "WHO AM I?: " << mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
 		mpu9250.readMagData(data);
 		for(int i=0; i<3; i++)
 		{
