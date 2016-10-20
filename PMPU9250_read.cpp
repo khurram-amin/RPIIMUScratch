@@ -9,9 +9,15 @@ int main()
 	float *data2 = new float[3];
 	MPU9250 mpu9250;
 	
+	cout << "WHO AM 1?: " << (int) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
+
 	mpu9250.initMPU9250();
+	cout << "WHO AM 2?: " << (int) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
+
 	delay(10);
 	mpu9250.initAK8963(data2);
+
+	cout << "WHO AM 3?: " << (int) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
 	delay(10);
 
 	while(1)
@@ -43,7 +49,7 @@ int main()
 		// {
 		// 	data[i] = 0;
 		// }
-		cout << "WHO AM I?: " << mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
+		cout << "WHO AM 4?: " << (int) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
 		mpu9250.readMagData(data);
 		for(int i=0; i<3; i++)
 		{
