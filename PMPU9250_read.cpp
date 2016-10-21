@@ -7,6 +7,8 @@ int main()
 {
 	short *data = new short[3];
 	float *data2 = new float[3];
+
+	cout << "Pi Board Rev" << piBoardRev() <<endl;
 	
 	MPU9250 mpu9250;
 	
