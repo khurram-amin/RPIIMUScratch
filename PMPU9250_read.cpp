@@ -9,18 +9,18 @@ int main()
 	float *data2 = new float[3];
 	MPU9250 mpu9250;
 	
-	cout << "WHO AM 1?: " << (unsigned int) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250-2) << endl;
+	cout << "WHO AM 1?: " <<  std::hex << mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250-2) << endl;
 
 	mpu9250.initMPU9250();
-	cout << "WHO AM 2?: " << (unsigned int) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250-1) << endl;
+	cout << "WHO AM 2?: " <<   std::hex <<  mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250-1) << endl;
 
 	delay(10);
 	mpu9250.initAK8963(data2);
 
-	cout << "WHO AM 3?: " << (unsigned int) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
+	cout << "WHO AM 3?: " <<   std::hex <<  mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
 	delay(10);
 
-	cout << "WHO AM 3*?: " << (unsigned int) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250+1) << endl;
+	cout << "WHO AM 3*?: " <<   std::hex <<  mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250+1) << endl;
 	
 	while(1)
 	{
