@@ -112,7 +112,7 @@ public:
 
 	char readByte(uint8_t address, uint8_t subAddress)
 	{
-		char data; 
+		uint8_t data; 
         #ifdef DEBUG
                 cout<<"reading byte from "<<(int)address<<":"<<(int)subAddress<<endl;
         #endif
