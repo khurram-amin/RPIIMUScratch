@@ -8,21 +8,11 @@ int main()
 	short *data = new short[3];
 	float *data2 = new float[3];
 
-	//cout << "AK8963" << fdAK8963 <<endl;
 	
 	MPU9250 mpu9250;
 	
-	//cout << "AK8963" << fdAK8963 <<endl;
-	
-	//writeByte(MPU9250_ADDRESS, PWR_MGMT_1, 0x00);
-
-	cout << "Power Management 1?: " <<  (int) mpu9250.readByte(MPU9250_ADDRESS, PWR_MGMT_1) << endl;
-	
-	//cout << "WHO AM 1?: " <<  std::hex << (char) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
-	//cout << "WHO AM 1 Mag?: " <<  std::hex << (char) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
-
 	mpu9250.initMPU9250();
-	cout << "Power Management 1?: " <<  (int) mpu9250.readByte(MPU9250_ADDRESS, PWR_MGMT_1) << endl;
+	cout << "Power Management after init?: " <<  (int) mpu9250.readByte(MPU9250_ADDRESS, PWR_MGMT_1) << endl;
 	
 	//cout << "WHO AM 2?: " <<   std::hex <<   (char) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
 	//cout << "WHO AM 2 Mag?: " <<  (char) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
