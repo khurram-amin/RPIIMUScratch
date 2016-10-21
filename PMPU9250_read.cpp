@@ -8,9 +8,11 @@ int main()
 	short *data = new short[3];
 	float *data2 = new float[3];
 
-	cout << "AK8963" << fdAK8963 <<endl;
+	//cout << "AK8963" << fdAK8963 <<endl;
 	
 	MPU9250 mpu9250;
+	
+	//cout << "AK8963" << fdAK8963 <<endl;
 	
 	writeByte(MPU9250_ADDRESS, PWR_MGMT_1, 0x00);
 
