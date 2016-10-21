@@ -296,11 +296,9 @@ public:
 		// Maximum delay is 4.9 ms which is just over a 200 Hz maximum rate
 		writeByte(MPU9250_ADDRESS, CONFIG, 0x03);
 		
-		cout << "Configuration before setting?: " <<  (int) readByte(MPU9250_ADDRESS, SMPLRT_DIV) << endl;
 		// Set sample rate = gyroscope output rate/(1 + SMPLRT_DIV)
 		writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x04);  // Use a 200 Hz rate; the same rate set in CONFIG above
-		cout << "Configuration after setting?: " <<  (int) readByte(MPU9250_ADDRESS, SMPLRT_DIV) << endl;
-
+		
 
 		// Set gyroscope full scale range
 		// Range selects FS_SEL and AFS_SEL are 0 - 3, so 2-bit values are left-shifted into positions 4:3
@@ -328,7 +326,11 @@ public:
 		// Configure Interrupts and Bypass Enable
 		// Set interrupt pin active high, push-pull, and clear on read of INT_STATUS, enable I2C_BYPASS_EN so additional chips 
 		// can join the I2C bus and all can be controlled by the Arduino as master
+
+		cout << "INT_PIN_CFG before setting?: " <<  (int) readByte(MPU9250_ADDRESS, INT_PIN_CFG) << endl;
 		writeByte(MPU9250_ADDRESS, INT_PIN_CFG, 0x22);
+		cout << "INT_PIN_CFG after setting?: " <<  (int) readByte(MPU9250_ADDRESS, INT_PIN_CFG) << endl;
+
 		writeByte(MPU9250_ADDRESS, INT_ENABLE, 0x01);  // Enable data ready (bit 0) interrupt
 	}
 
