@@ -11,18 +11,23 @@ int main()
 	MPU9250 mpu9250;
 	
 	cout << "WHO AM 1?: " <<  std::hex << (char) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
+	cout << "WHO AM 1 Mag?: " <<  std::hex << (char) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
 
 	mpu9250.initMPU9250();
 	cout << "WHO AM 2?: " <<   std::hex <<   (char) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
+	cout << "WHO AM 2 Mag?: " <<  std::hex << (char) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
 
 	delay(10);
 	mpu9250.initAK8963(data2);
 
 	cout << "WHO AM 3?: " <<   std::hex <<   (char) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
+	cout << "WHO AM 3 Mag?: " <<  std::hex << (char) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
+
 	delay(10);
 
 	cout << "WHO AM 3*?: " <<   std::hex <<   (char) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
-	
+	cout << "WHO AM 3* Mag?: " <<  std::hex << (char) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
+			
 	while(1)
 	{
 //		cout<<"reading data ..."<<endl;
@@ -53,6 +58,8 @@ int main()
 		// 	data[i] = 0;
 		// }
 		cout << "WHO AM 4?: " << (unsigned int) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
+		cout << "WHO AM 4 Mag?: " << (unsigned int) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
+	
 		mpu9250.readMagData(data);
 		for(int i=0; i<3; i++)
 		{
