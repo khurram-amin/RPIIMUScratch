@@ -7,6 +7,10 @@ int main()
 {
 	short *data = new short[3];
 	float *data2 = new float[3];
+	
+	cout << "WHO AM 1?: " <<  std::hex << mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
+
+
 	MPU9250 mpu9250;
 	
 	cout << "WHO AM 1?: " <<  std::hex << mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
