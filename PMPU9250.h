@@ -286,7 +286,7 @@ public:
 		cout << "Power Management before setting?: " <<  (int) readByte(MPU9250_ADDRESS, PWR_MGMT_1) << endl;
 	
 		writeByte(MPU9250_ADDRESS, PWR_MGMT_1, 0x00); // Clear sleep mode bit (6), enable all sensors 
-		delay(10); // Delay 100 ms for PLL to get established on x-axis gyro; should check for PLL ready interrupt  
+		//delay(10); // Delay 100 ms for PLL to get established on x-axis gyro; should check for PLL ready interrupt  
 
 		cout << "Power Management after setting?: " <<  (int) readByte(MPU9250_ADDRESS, PWR_MGMT_1) << endl;
 	
