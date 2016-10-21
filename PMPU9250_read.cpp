@@ -9,6 +9,8 @@ int main()
 	float *data2 = new float[3];
 
 	cout << "Pi Board Rev" << piBoardRev() <<endl;
+	cout << "BCM_GPIO pin number " << physPinToGpio(3) << " of pin 3." << endl;
+	cout << "BCM_GPIO pin number " << physPinToGpio(5) << " of pin 5"<< endl;
 	
 	MPU9250 mpu9250;
 	
