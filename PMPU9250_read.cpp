@@ -14,7 +14,7 @@ int main()
 	
 	//cout << "AK8963" << fdAK8963 <<endl;
 	
-	writeByte(MPU9250_ADDRESS, PWR_MGMT_1, 0x00);
+	//writeByte(MPU9250_ADDRESS, PWR_MGMT_1, 0x00);
 
 	cout << "Power Management 1?: " <<  std::hex << (char) mpu9250.readByte(MPU9250_ADDRESS, PWR_MGMT_1) << endl;
 	
