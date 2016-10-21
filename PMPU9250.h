@@ -286,19 +286,20 @@ public:
 		
 		writeByte(MPU9250_ADDRESS, PWR_MGMT_1, 0x00); // Clear sleep mode bit (6), enable all sensors 
 		delay(100); // Delay 100 ms for PLL to get established on x-axis gyro; should check for PLL ready interrupt  
-		
-		cout << "Power Management before setting?: " <<  (int) readByte(MPU9250_ADDRESS, PWR_MGMT_1) << endl;
 		// get stable time source
 		writeByte(MPU9250_ADDRESS, PWR_MGMT_1, 0x01);  // Set clock source to be PLL with x-axis gyroscope reference, bits 2:0 = 001
-		cout << "Power Management after setting?: " <<  (int) readByte(MPU9250_ADDRESS, PWR_MGMT_1) << endl;
 		
-		
+		cout << "Configuration before setting?: " <<  (int) readByte(MPU9250_ADDRESS, CONFIG) << endl;
+
+
 		// Configure Gyro and Accelerometer
 		// Disable FSYNC and set accelerometer and gyro bandwidth to 44 and 42 Hz, respectively; 
 		// DLPF_CFG = bits 2:0 = 010; this sets the sample rate at 1 kHz for both
 		// Maximum delay is 4.9 ms which is just over a 200 Hz maximum rate
 		writeByte(MPU9250_ADDRESS, CONFIG, 0x03);
 
+		cout << "Configuration after setting?: " <<  (int) readByte(MPU9250_ADDRESS, CONFIG) << endl;
+		
 		// Set sample rate = gyroscope output rate/(1 + SMPLRT_DIV)
 		writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x04);  // Use a 200 Hz rate; the same rate set in CONFIG above
 
