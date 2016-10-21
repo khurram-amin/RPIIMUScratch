@@ -327,10 +327,11 @@ public:
 		// Set interrupt pin active high, push-pull, and clear on read of INT_STATUS, enable I2C_BYPASS_EN so additional chips 
 		// can join the I2C bus and all can be controlled by the Arduino as master
 
-		cout << "INT_PIN_CFG before setting?: " <<  (int) readByte(MPU9250_ADDRESS, INT_PIN_CFG) << endl;
 		writeByte(MPU9250_ADDRESS, INT_PIN_CFG, 0x22);
-		cout << "INT_PIN_CFG after setting?: " <<  (int) readByte(MPU9250_ADDRESS, INT_PIN_CFG) << endl;
-
+		cout << "USER_CTRL before setting?: " <<  (int) readByte(MPU9250_ADDRESS, USER_CTRL) << endl;
+		writeByte(MPU9250_ADDRESS, USER_CTRL, 0x00);
+		cout << "USER_CTRL after setting?: " <<  (int) readByte(MPU9250_ADDRESS, USER_CTRL) << endl;
+		
 		writeByte(MPU9250_ADDRESS, INT_ENABLE, 0x01);  // Enable data ready (bit 0) interrupt
 	}
 
