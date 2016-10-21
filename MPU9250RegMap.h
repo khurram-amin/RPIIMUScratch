@@ -108,9 +108,9 @@
 
 // Self Testing Gyroscope (Read/Write Only)
 // The value in this register indicates the self test output generated during manufacturing tests. This value is to be used to check against subsequent self test outputs performed by the end user.
-#define SELF_TEST_X_GYRO 0x00                  
-#define SELF_TEST_Y_GYRO 0x01                                                                          
-#define SELF_TEST_Z_GYRO 0x02
+#define SELF_TEST_X_GYRO 0x00 //MPU6500 compatible                  
+#define SELF_TEST_Y_GYRO 0x01 //MPU6500 compatible                                                                         
+#define SELF_TEST_Z_GYRO 0x02 //MPU6500 compatible
 
 // Gyro Offset Registers (Read/Write Only)
 // These registers are used to remove DC bias from the gyro sensor data output for X, Y and Z axes. The values in these registers are subtracted from the gyro sensor values before going into the sensor registers.
@@ -118,15 +118,16 @@
 // OffsetDPS = OFFS_USR * 4 / 2^FS_SEL / Gyro_Sensitivity
 // Refer to page 11 of Registermap v1.6
 // User-defined trim values for gyroscope
-#define XG_OFFSET_H      0x13  // X-Axis High Byte
-#define XG_OFFSET_L      0x14  // X-Axis Low Byte
-#define YG_OFFSET_H      0x15  // Y-Axis High Byte
-#define YG_OFFSET_L      0x16  // Y-Axis Low Byte
-#define ZG_OFFSET_H      0x17  // Z-Axis High Byte
-#define ZG_OFFSET_L      0x18  // Z-Axis Low Byte
+#define XG_OFFSET_H      0x13  // X-Axis High Byte  //MPU6500 compatible
+#define XG_OFFSET_L      0x14  // X-Axis Low Byte   //MPU6500 compatible
+#define YG_OFFSET_H      0x15  // Y-Axis High Byte  //MPU6500 compatible
+#define YG_OFFSET_L      0x16  // Y-Axis Low Byte   //MPU6500 compatible
+#define ZG_OFFSET_H      0x17  // Z-Axis High Byte  //MPU6500 compatible
+#define ZG_OFFSET_L      0x18  // Z-Axis Low Byte   //MPU6500 compatible
 
 // Gyroscope Configuration (Read/Write Only)
-#define GYRO_CONFIG      0x1B  // D7, If High, X-Axis-Gyro-Self-Testing will be turned ON
+#define GYRO_CONFIG      0x1B  //MPU6500 compatible
+							   // D7, If High, X-Axis-Gyro-Self-Testing will be turned ON
   							   // D6, If High, Y-Axis-Gyro-Self-Testing will be turned ON
   							   // D5, If High, Z-Axis-Gyro-Self-Testing will be turned ON
 							   // D4:D3 = Gyro Full Scale Select
@@ -137,12 +138,12 @@
 							   // D1:D0 = Used to bypass DLPF, Please refer to page 14 of Register Map v1.6 for further detail.
 
 // Gyroscope Measurements (Read Only)
-#define GYRO_XOUT_H      0x43 // High Byte of the X-Axis gyroscope output
-#define GYRO_XOUT_L      0x44 // Low  Byte of the X-Axis gyroscope output
-#define GYRO_YOUT_H      0x45 // High Byte of the Y-Axis gyroscope output
-#define GYRO_YOUT_L      0x46 // Low  Byte of the Y-Axis gyroscope output
-#define GYRO_ZOUT_H      0x47 // High Byte of the Z-Axis gyroscope output
-#define GYRO_ZOUT_L      0x48 // Low  Byte of the Z-Axis gyroscope output
+#define GYRO_XOUT_H      0x43 // High Byte of the X-Axis gyroscope output  //MPU6500 compatible
+#define GYRO_XOUT_L      0x44 // Low  Byte of the X-Axis gyroscope output  //MPU6500 compatible
+#define GYRO_YOUT_H      0x45 // High Byte of the Y-Axis gyroscope output  //MPU6500 compatible
+#define GYRO_YOUT_L      0x46 // Low  Byte of the Y-Axis gyroscope output  //MPU6500 compatible
+#define GYRO_ZOUT_H      0x47 // High Byte of the Z-Axis gyroscope output  //MPU6500 compatible
+#define GYRO_ZOUT_L      0x48 // Low  Byte of the Z-Axis gyroscope output  //MPU6500 compatible
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -153,11 +154,12 @@
 
 // Self Testing Accelerometer (Read/Write Only)
 // The value in these registers indicates the self test output generated during manufacturing tests. This value is to be used to check against subsequent self test outputs performed by the end user.
-#define SELF_TEST_X_ACCEL 0x0D 
-#define SELF_TEST_Y_ACCEL 0x0E    
-#define SELF_TEST_Z_ACCEL 0x0F
+#define SELF_TEST_X_ACCEL 0x0D  //MPU6500 compatible
+#define SELF_TEST_Y_ACCEL 0x0E  //MPU6500 compatible  
+#define SELF_TEST_Z_ACCEL 0x0F  //MPU6500 compatible
 
 // Accelerometer Offset Register
+// MPU6500 compatible
 #define XA_OFFSET_H      0x77 // D7-D0 = Upper 8-bits of the X accelerometer offset cancellation. +/- 16g Offset cancellation in all Full Scale modes, 15 bit 0.98-mg steps
 #define XA_OFFSET_L      0x78 // D7-D1 = Lower 7-bits of the X accelerometer offset cancellation. +/- 16g Offset cancellation in all Full Scale modes, 15 bit 0.98-mg steps
 #define YA_OFFSET_H      0x7A // D7-D0 = Upper 8-bits of the Y accelerometer offset cancellation. +/- 16g Offset cancellation in all Full Scale modes, 15 bit 0.98-mg steps
@@ -167,7 +169,8 @@
 
 
 // Accelerometer Configuration Registers (Read/Write Only)
-#define ACCEL_CONFIG     0x1C  // D7, If High, X-Axis-Accel-Self-Testing will be turned ON
+#define ACCEL_CONFIG     0x1C  //MPU6500 compatible
+							   // D7, If High, X-Axis-Accel-Self-Testing will be turned ON
   							   // D6, If High, Y-Axis-Accel-Self-Testing will be turned ON
   							   // D5, If High, Z-Axis-Accel-Self-Testing will be turned ON
 							   // D4:D3 = Accel Full Scale Select
@@ -176,21 +179,23 @@
 							   //  0x02 = +- 8 DPS
 							   //  0x03 = +- 16
 
-#define ACCEL_CONFIG2    0x1D  // D3    = Used to bypass DLPF, Please refer to page 15 of Register Map v1.6 for further detail.
+#define ACCEL_CONFIG2    0x1D  //MPU6500 compatible
+							   // D3    = Used to bypass DLPF, Please refer to page 15 of Register Map v1.6 for further detail.
 							   // D2:D0 = Accelero Low Pass Filter Settings, Please refer to page 15 of Register Map v1.6 for further detail.
 
 
 // Accelerometer Measurements (Read Only)
-#define ACCEL_XOUT_H     0x3B  // High byte of Accelerometer X-Axis data
-#define ACCEL_XOUT_L     0x3C  // Low  byte of Accelerometer X-Axis data
-#define ACCEL_YOUT_H     0x3D  // High byte of Accelerometer Y-Axis data
-#define ACCEL_YOUT_L     0x3E  // Low  byte of Accelerometer Y-Axis data
-#define ACCEL_ZOUT_H     0x3F  // High byte of Accelerometer Z-Axis data
-#define ACCEL_ZOUT_L     0x40  // Low  byte of Accelerometer Z-Axis data
+#define ACCEL_XOUT_H     0x3B  // High byte of Accelerometer X-Axis data //MPU6500 compatible
+#define ACCEL_XOUT_L     0x3C  // Low  byte of Accelerometer X-Axis data //MPU6500 compatible
+#define ACCEL_YOUT_H     0x3D  // High byte of Accelerometer Y-Axis data //MPU6500 compatible
+#define ACCEL_YOUT_L     0x3E  // Low  byte of Accelerometer Y-Axis data //MPU6500 compatible
+#define ACCEL_ZOUT_H     0x3F  // High byte of Accelerometer Z-Axis data //MPU6500 compatible
+#define ACCEL_ZOUT_L     0x40  // Low  byte of Accelerometer Z-Axis data //MPU6500 compatible
 
 
 
-#define LP_ACCEL_ODR     0x1E  // Low Power Accelerometer ODR Control (Read/Write Only)
+#define LP_ACCEL_ODR     0x1E   //MPU6500 compatible
+							   // Low Power Accelerometer ODR Control (Read/Write Only)
 							   // D3:D0 = Sets the frequency of waking up the chip to take a sample of accel data – the low power accel Output Data Rate.
 							   // Please refer to page 17 of Register Map v1.6 for further detail.
 
@@ -199,7 +204,8 @@
 							   // For more details on how to configure the Wake-on-Motion interrupt, please refer to section 5 in the MPU-9250 Product Specification document.
 
 // Accelerometer Interrupt Control
-#define MOT_DETECT_CTRL  0x69  // D7 = ACCEL_INTEL_EN = This bit enables the Wake-on-Motion detection logic.
+#define MOT_DETECT_CTRL  0x69  //MPU6500 compatible
+							   // D7 = ACCEL_INTEL_EN = This bit enables the Wake-on-Motion detection logic.
 							   // D6 = ACCEL_INTEL_MODE = If set, compares the current sample with the previous one.
 
 
@@ -210,8 +216,8 @@
 
 
 // Temperature Measurements Data
-#define TEMP_OUT_H       0x41 // High Byte of the Temperature Sensor Output
-#define TEMP_OUT_L       0x42 // Low  Byte of the Temperature Sensor Output
+#define TEMP_OUT_H       0x41 // High Byte of the Temperature Sensor Output  //MPU6500 compatible
+#define TEMP_OUT_L       0x42 // Low  Byte of the Temperature Sensor Output  //MPU6500 compatible
 
 // To convert Temperrature Sensor Output into Celsius, use the following equation
 // TEMP_degC = ((TEMP_OUT – RoomTemp_Offset)/Temp_Sensitivity) + 21degC
@@ -231,10 +237,11 @@
 // This is the update rate of sensor register.
 // SAMPLE_RATE= Internal_Sample_Rate / (1 + SMPLRT_DIV)
 // Data should be sampled at or above sample rate; SMPLRT_DIV is only used for1kHz internal sampling.
-#define SMPLRT_DIV       0x19
+#define SMPLRT_DIV       0x19   //MPU6500 compatible
 
 // Configuration Register
-#define CONFIG           0x1A  // D6    = Low, When FIFO is full additional data will be written to the FIFO, replacing the oldest data
+#define CONFIG           0x1A  //MPU6500 compatible (page 13 of MPU6500)
+							   // D6    = Low, When FIFO is full additional data will be written to the FIFO, replacing the oldest data
 							   //       = High, When FIFO is full additional data will be not be written to the FIFO
 							   // D5:D3 = Enables the FSYNC pin data to be sampled
 							   //  0x00 = Function Disabled
@@ -248,7 +255,8 @@
 							   //
 							   // D2:D0 = DLPF_CFG, For details please refer to the page 13 of Register map v1.6
 
-#define FIFO_EN          0x23  // FIFO Enable (Read/Write Only)
+#define FIFO_EN          0x23  //MPU6500 compatible
+							   // FIFO Enable (Read/Write Only)
 							   // D7 = TEMP_OUT = if HIGH, Write TEMP_OUT_H and TEMP_OUT_L to the FIFO at the sample rate;
 							   // D6 = GYRO_XOUT = if HIGH, Write GYRO_XOUT_H and GYRO_XOUT_L to the FIFO at the sample rate;
 							   // D5 = GYRO_YOUT = if HIGH, Write GYRO_YOUT_H and GYRO_YOUT_L to the FIFO at the sample rate;
@@ -260,7 +268,7 @@
 
 // Interrupt Registers
 
-#define INT_PIN_CFG      0x37 // INT Pin/Bypass Enable configurations (Read/Write Only)
+#define INT_PIN_CFG      0x37 // INT Pin/Bypass Enable configurations (Read/Write Only)  //MPU6500 compatible Page 29 of MPU6500 register map
 							  // D7 = ACTL = if High, the logic level of INT pin is active-low else the logic level of INT pin will be active-high.
 							  // D6 = OPEN = If High, INT pin is configured as open drain else INT pin is configured as push-pull.
 							  // D5 = LATCH_INT_EN = If High, INT pin level is held high until interrupt status is cleared
@@ -272,14 +280,14 @@
 							  // D2 = FSYNC_INT_MODE_EN = If High, this enables the FSYNC pin to be used as an interrupt. For further details please refere to the page 29 of Register map v1.6
 							  // D1 = BYPASS_EN = If High, I2C_MASTER interface pin will fo into bypass.
 
-#define INT_ENABLE       0x38 // Interrupt Enable Register (Read/Write Only)
+#define INT_ENABLE       0x38 // Interrupt Enable Register (Read/Write Only)  //MPU6500 compatible
 							  // D6 = WOM_EN = If High, enable interrupt for wake on motion to propagate to the interrupt pin else the function is disabled.
 							  // D4 = FIFO_OVERFLOW_EN = If High, Enable interrupt for FIFO overflow to propagate to interrupt pin else this function is disabled.
 							  // D3 = FSYNC_INT_EN = If High, enable FSYNC interrupt to propogate to the interrupt pin else this funciton is disabled.
 							  // D0 = RAW_RDY_EN = Enable Raw Sensor Data Ready interrupt to propagate to interrupt pin. The timing of the interrupt can vary depending on the setting in register 36 I2C_MST_CTRL, bit [6] WAIT_FOR_ES.
 							  //	  For further details please refer to the page 30 of Register map v1.6
 
-#define INT_STATUS       0x3A // Interrupt Status Register (Read/Clear Only)
+#define INT_STATUS       0x3A // Interrupt Status Register (Read/Clear Only)  //MPU6500 compatible
 							  // D6 = WOM_INT = If High, WAKE ON MOTION interrupt occured.
 							  // D4 = FIFO_OVERFLOW_INT = IF High, FIFO Overflow interrupt occured. Note that in this case oldest data has been DROPPED-OFF from FIFO.
 							  // D3 = FSYNC_INT = If High, FSYNC interrupt occured.
@@ -287,12 +295,14 @@
 							  //	  For further details please refer to the page 30 of Register map v1.6								
 
 // Signal Path Reset
-#define SIGNAL_PATH_RESET  0x68 // D2 = GYRO_RESET  = Reset gyro digital signal path. Note: Sensor registers are not cleared. Use SIG_COND_RST to clear sensor registers.
+#define SIGNAL_PATH_RESET  0x68 //MPU6500 compatible
+								// D2 = GYRO_RESET  = Reset gyro digital signal path. Note: Sensor registers are not cleared. Use SIG_COND_RST to clear sensor registers.
 								// D1 = ACCEL_RESET = Reset accel digital signal path. Note: Sensor registers are not cleared. Use SIG_COND_RST to clear sensor registers.
 								// D0 = TEMP_RESET  = Reset temp digital signal path. Note: Sensor registers are not cleared. Use SIG_COND_RST to clear sensor registers.
 
 // User Control Register (Read/Write Only)
-#define USER_CTRL        0x6A // D6 = FIFO_EN = If High then enabels the FIFO operation mode. If low then Disable FIFO access from serial interface. To disable FIFO writes by dma, use FIFO_EN register. To disable possible FIFO writes from DMP, disable the DMP.
+#define USER_CTRL        0x6A //MPU6500 compatible
+							  // D6 = FIFO_EN = If High then enabels the FIFO operation mode. If low then Disable FIFO access from serial interface. To disable FIFO writes by dma, use FIFO_EN register. To disable possible FIFO writes from DMP, disable the DMP.
 							  // D5 = I2C_MST_EN = If High then Enable the I2C Master I/F module; pins ES_DA and ES_SCL are isolated from pins SDA/SDI and SCL/ SCLK. 
 							  //				   If Low then Disable I2C Master I/F module; pins ES_DA and ES_SCL are logically driven by pins SDA/SDI and SCL/ SCLK.
 							  // NOTE: DMP will run when enabled, even if all internal sensors are disabled, except when the sample rate is set to 8Khz.
@@ -303,7 +313,8 @@
 							  // D0 = SIG_COND_RESET = If High, Reset all gyro digital signal path, accel digital signal path, and temp digital signal path. This bit also clears all the sensor registers. SIG_COND_RST is a pulse of one clk8M wide.
 
 // Power Management 1 (Read/Write Only)
-#define PWR_MGMT_1       0x6B // D7 = H_RESET = If High then Reset the internal registers and restores the default settings. Write a 1 to set the reset, the bit will auto clear.
+#define PWR_MGMT_1       0x6B //MPU6500 compatible
+							  // D7 = H_RESET = If High then Reset the internal registers and restores the default settings. Write a 1 to set the reset, the bit will auto clear.
 							  // D6 = SLEEP = If High then the chip is set to sleep mode (After OTP loads, the PU_SLEEP_MODE bit will be written here)
 							  // D5 = CYCLE = IF High then and SLEEP and STANDBY are not set, the chip will cycle between sleep and taking a single sample at a rate determined by LP_ACCEL_ODR register
 							  // 	NOTE: When all accelerometer axis are disabled via PWR_MGMT_2 register bits and cycle is enabled, the chip will wake up at the rate determined by the respective registers above, but will not take any samples.
@@ -321,7 +332,8 @@
 							  //	Note: (After OTP loads, the inverse of PU_SLEEP_MODE bit will be written to CLKSEL[0])
 
 // Power Management 2 (Read/Write Only)
-#define PWR_MGMT_2       0x6C // D5 = DISABLE_X_ACCEL = If High, X accelerometer is disabled else X accelerometer is ON.
+#define PWR_MGMT_2       0x6C //MPU6500 compatible
+							  // D5 = DISABLE_X_ACCEL = If High, X accelerometer is disabled else X accelerometer is ON.
 							  // D4 = DISABLE_Y_ACCEL = If High, Y accelerometer is disabled else Y accelerometer is ON.
 							  // D3 = DISABLE_Z_ACCEL = If High, Z accelerometer is disabled else Z accelerometer is ON.
 							  // D2 = DISABLE_X_GYRO = If High, X gyroscope is disabled else X gyroscope is ON.
@@ -339,6 +351,7 @@ In this mode, the device will power off all devices except for the primary I2C i
 */
 
 // FIFO COUNTH (Read Only)
+//MPU6500 compatible
 #define FIFO_COUNTH      0x72 // D4:D0 = FIFO_COUNT[12:8] = High Bits, count indicates the number of written bytes in the FIFO.
 							  // 		 Reading this byte latches the data for both FIFO_COUNTH, and FIFO_COUNTL.
 #define FIFO_COUNTL      0x73 // D7:D0 = FIFO_COUNT[ 7:0] = Low Bits, count indicates the number of written bytes in the FIFO. 
@@ -350,7 +363,7 @@ In this mode, the device will power off all devices except for the primary I2C i
 
 // WHO AM I? (Read Only)
 #define WHO_AM_I_MPU9250 0x75 // Register to indicate to user which device is being accessed.
-							  // Should return 0x71
+							  // MPU9250 Should return 0x71
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -359,39 +372,40 @@ In this mode, the device will power off all devices except for the primary I2C i
 
 // I2C Registers
 
-#define I2C_MST_CTRL     0x24  // I2C Master Control (Read/Write Only)
-#define I2C_SLV0_ADDR    0x25
-#define I2C_SLV0_REG     0x26
-#define I2C_SLV0_CTRL    0x27
-#define I2C_SLV1_ADDR    0x28
-#define I2C_SLV1_REG     0x29
-#define I2C_SLV1_CTRL    0x2A
-#define I2C_SLV2_ADDR    0x2B
-#define I2C_SLV2_REG     0x2C
-#define I2C_SLV2_CTRL    0x2D
-#define I2C_SLV3_ADDR    0x2E
-#define I2C_SLV3_REG     0x2F
-#define I2C_SLV3_CTRL    0x30
-#define I2C_SLV4_ADDR    0x31
-#define I2C_SLV4_REG     0x32
-#define I2C_SLV4_DO      0x33
-#define I2C_SLV4_CTRL    0x34
-#define I2C_SLV4_DI      0x35
-#define I2C_MST_STATUS   0x36
+#define I2C_MST_CTRL     0x24  // I2C Master Control (Read/Write Only)  //MPU6500 compatible
+#define I2C_SLV0_ADDR    0x25  //MPU6500 compatible
+#define I2C_SLV0_REG     0x26  //MPU6500 compatible
+#define I2C_SLV0_CTRL    0x27  //MPU6500 compatible
+#define I2C_SLV1_ADDR    0x28  //MPU6500 compatible
+#define I2C_SLV1_REG     0x29  //MPU6500 compatible
+#define I2C_SLV1_CTRL    0x2A  //MPU6500 compatible
+#define I2C_SLV2_ADDR    0x2B  //MPU6500 compatible
+#define I2C_SLV2_REG     0x2C  //MPU6500 compatible
+#define I2C_SLV2_CTRL    0x2D  //MPU6500 compatible
+#define I2C_SLV3_ADDR    0x2E  //MPU6500 compatible
+#define I2C_SLV3_REG     0x2F  //MPU6500 compatible
+#define I2C_SLV3_CTRL    0x30  //MPU6500 compatible
+#define I2C_SLV4_ADDR    0x31  //MPU6500 compatible
+#define I2C_SLV4_REG     0x32  //MPU6500 compatible
+#define I2C_SLV4_DO      0x33  //MPU6500 compatible
+#define I2C_SLV4_CTRL    0x34  //MPU6500 compatible
+#define I2C_SLV4_DI      0x35  //MPU6500 compatible
+#define I2C_MST_STATUS   0x36  //MPU6500 compatible
 
-#define I2C_SLV0_DO      0x63
-#define I2C_SLV1_DO      0x64
-#define I2C_SLV2_DO      0x65
-#define I2C_SLV3_DO      0x66
+#define I2C_SLV0_DO      0x63  //MPU6500 compatible
+#define I2C_SLV1_DO      0x64  //MPU6500 compatible
+#define I2C_SLV2_DO      0x65  //MPU6500 compatible
+#define I2C_SLV3_DO      0x66  //MPU6500 compatible
 
-#define I2C_MST_DELAY_CTRL 0x67
+#define I2C_MST_DELAY_CTRL 0x67  //MPU6500 compatible
 
 
 // External Slaves on I2C 
 
-#define EXT_SENS_DATA_00 0x49
-#define EXT_SENS_DATA_01 0x4A
-#define EXT_SENS_DATA_02 0x4B
+//MPU6500 compatible
+#define EXT_SENS_DATA_00 0x49  //MPU6500 compatible
+#define EXT_SENS_DATA_01 0x4A  //MPU6500 compatible
+#define EXT_SENS_DATA_02 0x4B  //MPU6500 compatible
 #define EXT_SENS_DATA_03 0x4C
 #define EXT_SENS_DATA_04 0x4D
 #define EXT_SENS_DATA_05 0x4E
