@@ -12,7 +12,8 @@ int main()
 	MPU9250 mpu9250;
 	
 	mpu9250.initMPU9250();
-	cout << "Power Management after init?: " <<  (int) mpu9250.readByte(MPU9250_ADDRESS, PWR_MGMT_1) << endl;
+	delay(10);
+	cout << "Who AM I> AK8963 ?: " <<  (int) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
 	
 	//cout << "WHO AM 2?: " <<   std::hex <<   (char) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
 	//cout << "WHO AM 2 Mag?: " <<  (char) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
