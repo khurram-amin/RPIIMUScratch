@@ -42,31 +42,32 @@ int main()
 		{
 			data[i] = 0;
 		}
-		// mpu9250.readAccelData(data);
-		// cout<<"T: "<<mpu9250.readTempInC()<<endl;
-		// for(int i=0; i<3; i++)
-		// {
-		// 	cout<<i<<": "<<1.0f*data[i]*mpu9250.getAres()<<endl;
-		// }
-		// // cout<<endl;
-		// for (int i=0; i<3; i++)
-		// {
-		// 	data[i] = 0;
-		// }
+		mpu9250.readAccelData(data);
+		cout<<"T: "<<mpu9250.readTempInC()<<endl;
+		cout<<"Accel: "<<endl;
+		for(int i=0; i<3; i++)
+		{
+			cout<<i<<": "<<1.0f*data[i]*mpu9250.getAres()<<endl;
+		}
+		// cout<<endl;
+		for (int i=0; i<3; i++)
+		{
+			data[i] = 0;
+		}
 
-		// mpu9250.readGyroData(data);
-		// for(int i=0; i<3; i++)
-		// {
-		// 	cout<<i<<": "<<1.0f*data[i]*mpu9250.getGres()<<endl;
-		// }
-		// // cout<<endl;
-		// for (int i=0; i<3; i++)
-		// {
-		// 	data[i] = 0;
-		// }
-		cout << "WHO AM 4?: " << (unsigned int) mpu9250.readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250) << endl;
-		cout << "WHO AM 4 Mag?: " << (unsigned int) mpu9250.readByte(AK8963_ADDRESS, WHO_AM_I_AK8963) << endl;
-	
+		mpu9250.readGyroData(data);
+		cout<<"Gyro: "<<endl;
+		for(int i=0; i<3; i++)
+		{
+			cout<<i<<": "<<1.0f*data[i]*mpu9250.getGres()<<endl;
+		}
+		// cout<<endl;
+		for (int i=0; i<3; i++)
+		{
+			data[i] = 0;
+		}
+		
+		cout<<"Magneto: "<<endl;
 		mpu9250.readMagData(data);
 		for(int i=0; i<3; i++)
 		{
