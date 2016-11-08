@@ -229,7 +229,7 @@ public:
 			rawData[i] = 0;
 		}
 		std::cout << "Here1" << std::endl;
-		while (~(readByte(AK8963_ADDRESS, AK8963_ST1) & 0x01)) { // wait for magnetometer data ready bit to be set
+		if ((readByte(AK8963_ADDRESS, AK8963_ST1) & 0x01)) { // wait for magnetometer data ready bit to be set
 			std::cout << "Here2" << std::endl;
 			delay(1);
 			readBytes(AK8963_ADDRESS, AK8963_XOUT_L, 7, &rawData[0]);  // Read the six raw data and ST2 registers sequentially into data array
