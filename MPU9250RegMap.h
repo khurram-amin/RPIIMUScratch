@@ -34,7 +34,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Magnetometer Registers
-#define AK8963_ADDRESS   0x1E  //Self-Test Control: If '1' is written on D6 (7th LSB) of this register then magnetic field for self test is generated. DO NOT WRITE ANYOTHER BIT.  (Read/Write Only)
+#define AK8963_ADDRESS   0x0C  //Self-Test Control: If '1' is written on D6 (7th LSB) of this register then magnetic field for self test is generated. DO NOT WRITE ANYOTHER BIT.  (Read/Write Only)
 							   //Possible values 0x00 for normal operations, 0x40 to generate magnetic field for self testing.
 
 #define WHO_AM_I_AK8963  0x00  //Device ID of AK8963. It is described in one byte and fixed value  (Read Only)
@@ -458,7 +458,7 @@ In this mode, the device will power off all devices except for the primary I2C i
 #if ADO
 	#define MPU9250_ADDRESS 0x69  // Device address when ADO = 1
 #else
-	#define MPU9250_ADDRESS 0x6b  // Device address when ADO = 0
+	#define MPU9250_ADDRESS 0x68  // Device address when ADO = 0
 #endif  
 
 #endif 
