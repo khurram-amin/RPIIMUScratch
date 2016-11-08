@@ -74,6 +74,6 @@ int main()
 		}
 
 		cout<<endl<<endl<<endl;
-		delay(1);
+		delay(10);
 	}
 }
