@@ -458,7 +458,7 @@ In this mode, the device will power off all devices except for the primary I2C i
 #if ADO
 	#define MPU9250_ADDRESS 0x69  // Device address when ADO = 1
 #else
-	#define MPU9250_ADDRESS 0x68  // Device address when ADO = 0
+	#define MPU9250_ADDRESS 0x6b  // Device address when ADO = 0
 #endif  
 
 #endif 
